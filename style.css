@@ -22,7 +22,11 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 28px 28px;
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
 }
@@ -394,6 +398,12 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
+}
+
+.note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
 }
 
 /* Contact */
