@@ -390,6 +390,12 @@ section {
   color: var(--accent);
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
 /* Contact */
 .contact {
   text-align: center;
