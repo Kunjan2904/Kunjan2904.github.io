@@ -525,6 +525,12 @@ section {
   transition: border-color 0.2s;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: var(--muted);
@@ -548,6 +554,26 @@ section {
   gap: 8px;
   border: none;
   cursor: pointer;
+}
+
+.form-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-status {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 1.4em;
+}
+
+.form-status.success {
+  color: #3fb950;
+}
+
+.form-status.error {
+  color: #f85149;
 }
 
 /* Light theme overrides */
@@ -615,6 +641,10 @@ section {
   }
 
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
     grid-template-columns: 1fr;
   }
 }

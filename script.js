@@ -79,5 +79,41 @@ themeToggle.addEventListener("click", () => {
 
 setTheme(localStorage.getItem("theme") || "dark");
 
+// Contact form AJAX submit
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const btn = contactForm.querySelector(".form-btn");
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  fetch(contactForm.action, {
+    method: "POST",
+    body: new FormData(contactForm),
+    headers: { Accept: "application/json" },
+  })
+    .then((res) => {
+      if (res.ok) {
+        contactForm.reset();
+        formStatus.textContent = "Message sent successfully!";
+        formStatus.className = "form-status success";
+      } else {
+        formStatus.textContent = "Something went wrong. Please try again.";
+        formStatus.className = "form-status error";
+      }
+    })
+    .catch(() => {
+      formStatus.textContent = "Something went wrong. Please try again.";
+      formStatus.className = "form-status error";
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+      setTimeout(() => (formStatus.textContent = ""), 5000);
+    });
+});
+
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();

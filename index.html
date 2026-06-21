@@ -153,17 +153,26 @@
           I'm open to freelance work, full-time opportunities, and collaboration on Python or Odoo projects.
           Feel free to reach out!
         </p>
-        <form class="contact-form" action="https://formspree.io/f/xrewzjlv" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrewzjlv" method="POST">
           <div class="form-group">
             <input type="text" name="name" placeholder="Your Name" required />
           </div>
           <div class="form-group">
             <input type="email" name="email" placeholder="Your Email" required />
           </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone (optional)" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="company" placeholder="Company (optional)" />
+            </div>
+          </div>
           <div class="form-group">
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary form-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-status" id="formStatus"></p>
         </form>
         <div class="contact-links">
           <a href="https://wa.me/919978513486" class="contact-card">
