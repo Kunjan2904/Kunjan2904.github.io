@@ -38,9 +38,14 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -148,6 +153,18 @@
           I'm open to freelance work, full-time opportunities, and collaboration on Python or Odoo projects.
           Feel free to reach out!
         </p>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
         <div class="contact-links">
           <a href="https://wa.me/919978513486" class="contact-card">
             <i class="fa-brands fa-whatsapp"></i>

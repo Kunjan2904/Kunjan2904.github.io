@@ -10,6 +10,17 @@
   --radius: 12px;
 }
 
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-alt: #f6f8fa;
+  --border: #d0d7de;
+  --text: #424a53;
+  --text-bright: #1f2328;
+  --muted: #656d76;
+  --accent: #0969da;
+  --accent-2: #8250df;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -81,6 +92,28 @@ body {
 
 .nav-links a:hover {
   color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-bright);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 8px 10px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .nav-toggle {
@@ -468,6 +501,69 @@ section {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-bright);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-btn {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Light theme overrides */
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.06) 1px, transparent 0);
+}
+
+[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .hero {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(9, 105, 218, 0.1), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(130, 80, 223, 0.08), transparent 40%);
 }
 
 /* Responsive */

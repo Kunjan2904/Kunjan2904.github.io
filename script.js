@@ -62,5 +62,22 @@ const observer = new IntersectionObserver(
 );
 revealEls.forEach((el) => observer.observe(el));
 
+// Theme toggle
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  themeIcon.className = theme === "light" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+}
+
+themeToggle.addEventListener("click", () => {
+  const current = document.documentElement.getAttribute("data-theme");
+  setTheme(current === "light" ? "dark" : "light");
+});
+
+setTheme(localStorage.getItem("theme") || "dark");
+
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
