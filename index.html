@@ -24,10 +24,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet" />
+  <!-- Devicons for tech logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css" />
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Custom styles -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Apply saved theme immediately to prevent flash -->
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark');</script>
 </head>
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">KP<span>.</span></div>
+    <div class="preloader-track"><div class="preloader-fill"></div></div>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <header class="navbar">
     <div class="container nav-container">
       <a href="#home" class="logo">KP<span>.</span></a>
@@ -42,7 +57,7 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fa-solid fa-moon" id="themeIcon"></i>
         </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -51,6 +66,9 @@
 
   <main>
     <section class="hero" id="home">
+      <!-- Animated particle background -->
+      <canvas class="particles-canvas" id="particles"></canvas>
+
       <div class="container hero-content">
         <img class="avatar" src="https://avatars.githubusercontent.com/u/84786472?v=4" alt="Kunjan Patel" />
         <h1>Hi, I'm <span class="highlight">Kunjan Patel</span></h1>
@@ -90,24 +108,107 @@
             <li><i class="fa-solid fa-handshake"></i> Open to freelance &amp; collaboration</li>
           </ul>
         </div>
+
+        <!-- Animated stat counters -->
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-display">
+              <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Projects Built</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-display">
+              <span class="stat-number" data-target="11">0</span><span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Technologies</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-display">
+              <span class="stat-number" data-target="18">0</span><span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Months Coding</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="skills" id="skills">
       <div class="container reveal">
         <h2 class="section-title">Skills &amp; Tools</h2>
-        <div class="skills-grid">
-          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-          <img src="https://img.shields.io/badge/Odoo-9C27B0?style=for-the-badge&logo=odoo&logoColor=white" alt="Odoo" />
-          <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
-          <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-          <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-          <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-          <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-          <img src="https://img.shields.io/badge/XML-FF6600?style=for-the-badge&logo=xml&logoColor=white" alt="XML" />
-          <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-          <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-          <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code" />
+        <div class="skills-categories">
+
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <i class="fa-solid fa-server"></i>
+              <span>Backend</span>
+            </div>
+            <div class="skill-cards-row">
+              <div class="skill-card">
+                <i class="devicon-python-plain colored"></i>
+                <span>Python</span>
+              </div>
+              <div class="skill-card">
+                <i class="devicon-django-plain colored"></i>
+                <span>Django</span>
+              </div>
+              <div class="skill-card odoo-card">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Odoo</span>
+              </div>
+              <div class="skill-card">
+                <i class="devicon-postgresql-plain colored"></i>
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <i class="fa-solid fa-code"></i>
+              <span>Frontend &amp; Markup</span>
+            </div>
+            <div class="skill-cards-row">
+              <div class="skill-card">
+                <i class="devicon-html5-plain colored"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="skill-card">
+                <i class="devicon-css3-plain colored"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="skill-card">
+                <i class="devicon-javascript-plain colored"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="skill-card xml-card">
+                <i class="fa-solid fa-file-code"></i>
+                <span>XML</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <span>Tools &amp; Environment</span>
+            </div>
+            <div class="skill-cards-row">
+              <div class="skill-card">
+                <i class="devicon-git-plain colored"></i>
+                <span>Git</span>
+              </div>
+              <div class="skill-card linux-card">
+                <i class="devicon-linux-plain"></i>
+                <span>Linux</span>
+              </div>
+              <div class="skill-card">
+                <i class="devicon-vscode-plain colored"></i>
+                <span>VS Code</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -173,14 +274,19 @@
           <p class="form-status" id="formStatus"></p>
         </form>
         <div class="contact-links">
-          <a href="https://wa.me/919978513486" class="contact-card">
+          <a href="https://wa.me/919978513486" target="_blank" rel="noopener" class="contact-card">
             <i class="fa-brands fa-whatsapp"></i>
             <span>+91 99785 13486</span>
           </a>
-          <a href="mailto:patelkunjan1319@gmail.com" class="contact-card">
-            <i class="fa-solid fa-envelope"></i>
-            <span>patelkunjan1319@gmail.com</span>
-          </a>
+          <div class="contact-card-wrap">
+            <a href="mailto:patelkunjan1319@gmail.com" class="contact-card">
+              <i class="fa-solid fa-envelope"></i>
+              <span>patelkunjan1319@gmail.com</span>
+            </a>
+            <button class="copy-btn" id="copyEmailBtn" title="Copy email address">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
           <a href="https://www.linkedin.com/in/kunjan-patel-7261031a2/" target="_blank" rel="noopener" class="contact-card">
             <i class="fa-brands fa-linkedin"></i>
             <span>LinkedIn</span>
@@ -199,6 +305,17 @@
       <p>&copy; <span id="year"></span> Kunjan Patel. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Toast notification -->
+  <div class="toast-notify" id="toastNotify">
+    <i class="fa-solid fa-check-circle"></i>
+    <span>Email copied!</span>
+  </div>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
