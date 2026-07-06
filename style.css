@@ -335,6 +335,99 @@ section {
   text-align: center;
 }
 
+/* Experience & Education */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-left: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  background: rgba(47, 129, 247, 0.06);
+  border-color: var(--accent);
+  box-shadow: 0 16px 48px rgba(47, 129, 247, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.timeline-content h3 {
+  color: var(--text-bright);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.timeline-meta {
+  display: block;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[data-theme="light"] .timeline-content {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .timeline-content:hover {
+  background: rgba(9, 105, 218, 0.05);
+  border-color: var(--accent);
+}
+
 /* Projects */
 .projects {
   background: var(--bg-alt);
