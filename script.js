@@ -26,7 +26,7 @@ try {
   const roles = [
     "Python Developer",
     "Odoo ERP Developer",
-    "Django Enthusiast",
+    "AI Developer",
     "ERP Automation Specialist",
   ];
   const typedEl = document.getElementById("typed");
@@ -307,16 +307,6 @@ try {
   }
 } catch (err) {
   console.error("Stat counter setup failed:", err);
-}
-
-// ── Preloader ──────────────────────────────────────────────────
-try {
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) setTimeout(() => preloader.classList.add("hidden"), prefersReducedMotion ? 0 : 900);
-  });
-} catch (err) {
-  console.error("Preloader setup failed:", err);
 }
 
 // ── Copy email to clipboard ────────────────────────────────────
